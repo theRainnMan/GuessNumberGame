@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+</head>
+<body ng-app="mainApp">
+    <div ng-controller="mainCtrl">
+        <p>Please guess a number between {{ currentMin }} -- {{ currentMax }}</p>
+        <div>
+            <div class="myBar" ng-style="myStyle"></div>
+        </div>
+        <input type="number" ng-model="userGuess">
+        <p ng-if="lowStatus">Your number is low</p>
+        <p ng-if="highStatus">Your number is high</p>
+        <p ng-if="winStatus">You win the game<button ng-click="generateNum()">play again</button></p>
+        <button ng-click="generateNum()">start game</button>
+        <button ng-click="GuessNumber(userGuess)">Submit</button>
+    </div>
+</body>
+</html>
