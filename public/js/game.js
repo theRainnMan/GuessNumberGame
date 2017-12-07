@@ -20,13 +20,17 @@ app.controller("mainCtrl", ["$scope", function ($scope) {
         else if(userGuess < $scope.randomNumber){
             $scope.highStatus = false;
             $scope.lowStatus = true
-            $scope.currentMin = userGuess;
+            if(userGuess > $scope.currentMin) {
+                $scope.currentMin = userGuess;
+            }
             console.log("small");
         }
         else {
             $scope.lowStatus = false;
             $scope.highStatus = true
-            $scope.currentMax = userGuess;
+            if(userGuess < $scope.currentMax) {
+                $scope.currentMax = userGuess;
+            }
             console.log("large");
         }
     }
@@ -39,4 +43,7 @@ app.controller("mainCtrl", ["$scope", function ($scope) {
         console.log($scope.randomNumber);
     }
 
+    $scope.updaeBar = function () {
+        var elem = document.getElementById("myBar")
+    }
 }]);
